@@ -5,7 +5,6 @@ from multiselectfield import MultiSelectField
 
 
 class Address(models.Model):
-    name = models.CharField(max_length=30)
     address = models.CharField(max_length=50)
     city = models.CharField(max_length=60)
     state = models.CharField(max_length=30)
@@ -17,23 +16,20 @@ class Address(models.Model):
         verbose_name = 'Address'
         verbose_name_plural = 'Address'
 
-    def __str__(self):
-        return self.name
 
-
-class Subject(models.Model):
+class AdministrativeOrganization(models.Model):
     name = models.CharField(max_length=100)
     address = models.ForeignKey(Address, on_delete=models.CASCADE)
-
-
-class AdministrativeOrganization(Subject):
     responsible = models.CharField(max_length=30)
     org_type = models.CharField(max_length=30)
 
 
 class Product(models.Model):
-    specification = models.TextField()
+    name = models.CharField(max_length=30)
     description = models.CharField(max_length=1024)
+    specification = models.TextField()
+    three_d_model_url = models.CharField(max_length=512, null=True)
+    image_url = models.CharField(max_length=512, null=True)
 
 
 class Order(models.Model):
@@ -48,9 +44,11 @@ PRODUCER_TYPES = (('Maker', 'Independent Maker'),
                   ('Other', 'Other type of Producer'))
 
 
-class Producer(Subject):
+class Producer(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
     producer_type = MultiSelectField(choices=PRODUCER_TYPES)
-    category = models.CharField(max_length=30)
+    category = models.CharField(max_length=30, null=True)
 
 
 class FinishedProduct(models.Model):
@@ -59,7 +57,9 @@ class FinishedProduct(models.Model):
     donation = models.BinaryField(default=False)
 
 
-class GatheringCenter(Subject):
+class GatheringCenter(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
     administrated_by = models.ForeignKey(AdministrativeOrganization, on_delete=models.CASCADE)
     supervisor = models.CharField(max_length=30)
 
@@ -79,7 +79,9 @@ HEALTH_CENTER_TYPES = (('Hospital', 'Hospital'),
                        ('Other', 'Other type of center'))
 
 
-class HealthCenter(Subject):
+class HealthCenter(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
     manager = models.CharField(max_length=30)
     center_type = MultiSelectField(choices=HEALTH_CENTER_TYPES)
 
