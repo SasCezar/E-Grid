@@ -1,7 +1,8 @@
 from django.urls import path
 
-from . import views
+from egrid import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+
 ]
