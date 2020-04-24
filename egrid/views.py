@@ -10,6 +10,16 @@ def index(request):
     return render(request, 'index.html', context)
 
 
+def order(request, pk):
+    order = Order.objects.get(pk=pk)
+    context = {"order": order}
+    return render(request, 'order.html', context)
+
+
+
+
+
+
 def about_us(request):
     return render(request,'about_us.html')
 
