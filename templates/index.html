@@ -1,12 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>European Grid</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+    <h1>Required products</h1>
+    <div class="row">
+    {% for product in products %}
+        <div class="col-md-4">
+            <div class="card mb-2">
 
-<h2>A good service is coming soon</h2>
+                <img class="card-img-top" src="{{ product.image_url }}">
 
-</body>
-</html>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <a href="#" class="btn btn-primary"> Open request</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+
+
+
+
+
+{% endblock %}
