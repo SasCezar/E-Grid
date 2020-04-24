@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from egrid.models import Product, Order
+from egrid.models import Product, Order, AdministrativeOrganization
 
 
 # Create your views here.
@@ -10,9 +10,11 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def order(request, pk):
-    order = Order.objects.get(pk=pk)
-    context = {"order": order}
+def order(request, pk=1):
+    order = Order.objects.get(pk=1)
+    product = Product.objects.get(id=order.product_id_id)
+    buyer = AdministrativeOrganization.objects.get(id=order.buyer_id_id)
+    context = {"order": order,"product":product,"buyer":buyer}
     return render(request, 'order.html', context)
 
 
