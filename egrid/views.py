@@ -16,10 +16,6 @@ def order(request, pk):
     return render(request, 'order.html', context)
 
 
-
-
-
-
 def about_us(request):
     return render(request,'about_us.html')
 
