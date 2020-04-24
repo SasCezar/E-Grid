@@ -4,11 +4,11 @@ import scrapy
 class POISpider(scrapy.Spider):
     name = "POI"
     site_url = "https://www.informazione-aziende.it"
-    base_ulrs = {"https://www.informazione-aziende.it/13_INDUSTRIE-TESSILI/Regione_LOMBARDIA?qPg=": 200,
-                 "https://www.informazione-aziende.it/47-73-1_FARMACIE/Regione_LOMBARDIA?qPg=": 165}
+    base_ulrs = {"https://www.informazione-aziende.it/13_INDUSTRIE-TESSILI/Regione_LOMBARDIA?qPg=": 20,
+                 "https://www.informazione-aziende.it/47-73-1_FARMACIE/Regione_LOMBARDIA?qPg=": 16}
 
     def start_requests(self):
-        urls = [url + str(i + 1) for url in self.base_ulrs for i in range(1)]
+        urls = [url + str(i + 1) for url in self.base_ulrs for i in range(self.base_ulrs[url])]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
