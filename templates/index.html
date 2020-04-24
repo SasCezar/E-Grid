@@ -13,7 +13,8 @@
             <div class="card-body">
                 <h5 class="card-title">{{ product.name }}</h5>
                 <p class="card-text">{{ product.description }}</p>
-                <a href="" class="btn btn-primary"> Open request </a>
+                <p>{{ product.id }}</p>
+                <a href="{%  url 'order' product.id %}" class="btn btn-primary"> Open request </a>
             </div>
         </div>
     {% endfor %}
