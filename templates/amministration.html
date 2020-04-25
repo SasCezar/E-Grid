@@ -2,14 +2,11 @@
 {% load static %}
 {% block page_content %}
 
-
-
-
     <h2 class="text-center"> {{ product.name }}</h2>
     <div class="row container">
 
             <p class="text-center"><h3>{{ organization.name }}</h3></p>
-            
+
             <div class="col-md-4">
                 <div class="badge badge-primary">
                     {{ organization.org_type }}
@@ -25,11 +22,11 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th scope="col">id</th>
+                        <th scope="col">ID</th>
                         <th scope="col"></th>
-                        <th scope="col">product</th>
-                        <th scope="col">quantity</th>
-                        <th scope="col">unit price</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Unit price</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -50,6 +47,4 @@
         </div>
     </div>
 
-    
-   
 {% endblock %}
