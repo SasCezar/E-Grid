@@ -9,4 +9,5 @@ urlpatterns = [
     path('maps', views.maps, name="maps"),
     path('login', views.login, name="login"),
     path('product/<int:pk>/', views.product, name='product'),
+    path('amministration/<int:pk>/', views.amministration, name='product'),
 ]

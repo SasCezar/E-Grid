@@ -1,0 +1,55 @@
+{% extends "body.html" %}
+{% load static %}
+{% block page_content %}
+
+
+
+
+    <h2 class="text-center"> {{ product.name }}</h2>
+    <div class="row container">
+
+            <p class="text-center"><h3>{{ organization.name }}</h3></p>
+            
+            <div class="col-md-4">
+                <div class="badge badge-primary">
+                    {{ organization.org_type }}
+                </div>
+            </div>
+            <div class="row container">
+                <div class="col-md-4">
+                    <h4>Address:<br></h4>
+                    {{ organization.address.address }}
+                </div>
+            </div>
+            <div class="row container">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col"></th>
+                        <th scope="col">product</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col">unit price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {%for order in orders %}
+                        <tr>
+                            <th scope="row">{{order.id}}</th>
+                            <td><a class="badge badge-pill badge-info" href="../../order/{{order.id}}">see details</a></td>
+                            <td> {{order.product_id.name}} </td>
+                            <td> {{order.quantity}}</td>
+                            <td> {{order.unit_price}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+    
+   
+{% endblock %}

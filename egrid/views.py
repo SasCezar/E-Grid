@@ -49,3 +49,9 @@ def product(request, pk):
     context = {"orders": orders, "product": product,"ordersinfo":ordersinfo}
     return render(request, 'product.html', context)
 
+
+def amministration(request, pk):
+    organization = Organization.objects.get(id=pk)
+    orders = Order.objects.filter(buyer_id=pk)
+    context = {"organization": organization,"orders" : orders }
+    return render(request, 'amministration.html', context)
