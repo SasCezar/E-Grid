@@ -1,42 +1,48 @@
 {% extends "body.html" %}
 {% load static %}
 {% block page_content %}
-
-    <h2 class="text-center m-4"> {{ product.name }}</h2>
-    <div class="container">
-        <div class="row no-gutters bg-light position-relative">
-            <div class="col-md-6 mb-md-0 p-md-4">
-                <img class="card-img-top" src="{{ product.image_url }}">
-            </div>
-            <div class="col-md-6 position-static p-4 pl-md-0">
-                <h5 class="mt-0">Description</h5>
-                <p class="text-justify">{{ product.description }}</p>
-                <a href="#" class="stretched-link">Download Product specification</a>
-            </div>
-        </div>
-
-
-
-    </div>
-
-    <div class="orders">
-        <h3 class="text-center">Orders</h3>
-        {% for order in orders %}
-            <div class="col-md-4">
-
-                <div class="card mb-2">
-                    <div class="card-body rounded border shadow">
-                        <h5 class="card-title"><span class="badge badge-primary">priority high</span></h5>
-                        <p>{{ order.quantity }}
-                        <p>{{ order.unit_price }}</p>
-                        <p>{{ order.buyer_id.name }}</p>
-                        <p>{{ order.buyer_id.address.country }}</p>
-                        <button class="btn btn-outline-primary" href="../../order/{{ order.id }}" type="submit">Act
-                        </button>
-                    </div>
+    <div class="container  ">
+        <h2 class=" display-4 m-4"> <b>{{ product.name }} </b></h2>
+        <div class="container">
+            <div class="row no-gutters bg-light position-relative">
+                <div class="col-md-6 mb-md-0 p-md-4">
+                    <img class="card-img-top" src="{{ product.image_url }}">
+                </div>
+                <div class="col-md-6 position-static p-4 pl-md-0">
+                    <h5 class="mt-0">Description</h5>
+                    <p class="text-justify">{{ product.description }}</p>
+                    <a href="#" class="stretched-link">Download Product specification</a>
                 </div>
             </div>
-        {% endfor %}
+
+
+        </div>
+    </div>
+
+    <div class="container mt-5  ">
+            <h2 class=" display-4 m-4"> Requests</h2>
+        <div class="row   ">
+
+
+
+            {% for order in orders %}
+                <div class="col-md-4 mt-5 ">
+
+                    <div class="card mb-2">
+                        <div class="card-body rounded  shadow">
+                            <h5 class="card-title"><span class="badge badge-primary">priority high</span></h5>
+                            <p>{{ order.quantity }}
+                            <p>{{ order.unit_price }}</p>
+                            <p>{{ order.buyer_id.name }}</p>
+                            <p>{{ order.buyer_id.address.country }}</p>
+                            <button class="btn btn-outline-primary" href="../../order/{{ order.id }}" type="submit">Act
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
 
     </div>
 
