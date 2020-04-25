@@ -32,6 +32,8 @@ with open("../maps/geo_addresses.json", "rt", encoding="utf8") as inf, \
         if obj['type'] == "Pharmacy":
             poi_writer.writerow([obj['name'].replace("\"", ""), add_id, names.get_full_name(),obj["type"]])
         else:
+            if obj["type"] == 1:
+                obj["type"] = "Electronics"
             prod_writer.writerow([obj['name'].replace("\"", ""), add_id, obj['type']])
 
     for address in mappings:
