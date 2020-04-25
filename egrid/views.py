@@ -30,7 +30,7 @@ def login(request):
     return render(request, 'login.html')
 
 
-def addUser():
+def adduser():
     # Create user and save to the database
     user = User.objects.create_user('myusername', 'myemail@crazymail.com', 'mypassword')
 
@@ -44,14 +44,14 @@ def addUser():
 def product(request, pk):
     product = Product.objects.get(id=pk)
     orders = Order.objects.filter(product_id_id=pk)
-    
+
     ordersinfo = len(orders)
-    context = {"orders": orders, "product": product,"ordersinfo":ordersinfo}
+    context = {"orders": orders, "product": product, "ordersinfo": ordersinfo}
     return render(request, 'product.html', context)
 
 
 def administration(request, pk):
     organization = Organization.objects.get(id=pk)
     orders = Order.objects.filter(buyer_id=pk)
-    context = {"organization": organization,"orders" : orders }
+    context = {"organization": organization, "orders": orders}
     return render(request, 'administration.html', context)
