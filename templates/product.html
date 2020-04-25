@@ -1,0 +1,96 @@
+{% extends "body.html" %}
+{% load static %}
+{% block page_content %}
+<style>
+    .collapsible_order {
+      background-color: #777;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+    
+    .collapsible_order:hover {
+      background-color: #555;
+    }
+    
+    .content_order {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f1f1f1;
+    }
+</style>
+<script>
+   function openDiv(el){
+        objDOM = document.getElementById("content_order_"+el);
+        
+        if (objDOM.style.display === "block") {
+            objDOM.style.display = "none";
+        } else {
+            objDOM.style.display = "block";
+        }
+   }
+</script>
+
+
+    <h1>Product : {{ product.name }}</h1>
+    <div class="row">
+   
+        <div class="col-md-4">
+            <div class="card mb-2">
+
+                <img class="card-img-top" src="{{ product.image_url }}">
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-2">
+
+               
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {% for order in orders %}
+            <div class="col-md-4">
+                <div class="card mb-1">
+                    <p>{{ order.quantity }}<br>{{ order.unit_price }}<br>{{ order.buyer_id.name}}<br>{{ order.buyer_id.address.country}}</p>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="col-md-4">
+            <div class="card mb-1" style="width: auto;">
+                <p>r<br>r<br>r</p>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+            <div class="card-body">
+                
+                
+                <button type="button" onclick="openDiv('1')" class="collapsible_order">Product description</button>
+                <div id="content_order_1" style="display:none">
+                    <p >{{ product.description }}</p>
+                </div>
+                <button type="button" onclick="openDiv('2')" class="collapsible_order">Product specification</button>
+                <div id="content_order_2" style="display:none">
+                    <p >{{ product.specification }}</p>  
+                </div>
+                <button type="button" onclick="openDiv('3')" class="collapsible_order">Organization</button>
+                <div id="content_order_3" style="display:none">             
+                    <p >{{ buyer.name }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
