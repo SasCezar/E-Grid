@@ -20,3 +20,6 @@ def order(request, pk):
 
 def about_us(request):
     return render(request, 'about_us.html')
+
+def map(request):
+    return render(request, 'maps.html')
