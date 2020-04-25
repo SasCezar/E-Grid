@@ -10,8 +10,9 @@ class Address(models.Model):
     state = models.CharField(max_length=30)
     zipcode = models.CharField(max_length=10)
     country = models.CharField(max_length=50)
+    lat = models.DecimalField(max_digits=9, decimal_places=5)
+    long = models.DecimalField(max_digits=9, decimal_places=5)
 
-    # TODO Add GeoSpatial
     class Meta:
         verbose_name = 'Address'
         verbose_name_plural = 'Address'
@@ -39,15 +40,9 @@ class Order(models.Model):
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
 
 
-PRODUCER_TYPES = (('Maker', 'Independent Maker'),
-                  ('Factory', 'Industrial Factory'),
-                  ('Other', 'Other type of Producer'))
-
-
 class Producer(models.Model):
     name = models.CharField(max_length=100)
     address = models.ForeignKey(Address, on_delete=models.CASCADE)
-    producer_type = MultiSelectField(choices=PRODUCER_TYPES)
     category = models.CharField(max_length=30, null=True)
 
 
@@ -82,7 +77,6 @@ HEALTH_CENTER_TYPES = (('Hospital', 'Hospital'),
 class HealthCenter(models.Model):
     name = models.CharField(max_length=100)
     address = models.ForeignKey(Address, on_delete=models.CASCADE)
-    manager = models.CharField(max_length=30)
     center_type = MultiSelectField(choices=HEALTH_CENTER_TYPES)
 
 
