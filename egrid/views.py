@@ -50,8 +50,8 @@ def product(request, pk):
     return render(request, 'product.html', context)
 
 
-def amministration(request, pk):
+def administration(request, pk):
     organization = Organization.objects.get(id=pk)
     orders = Order.objects.filter(buyer_id=pk)
     context = {"organization": organization,"orders" : orders }
-    return render(request, 'amministration.html', context)
+    return render(request, 'administration.html', context)
