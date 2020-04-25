@@ -10,7 +10,7 @@ def geolocalize(configs):
 
     params = {'subscription-key': configs['subscription_key'], "api-version": "1.0"}
 
-    with open("poi/result.json", "rt", encoding="utf8") as inf, \
+    with open("poi/result_p&t.json", "rt", encoding="utf8") as inf, \
             open("geo_addresses.json", "wt", encoding="utf8") as outf:
         for line in inf:
             obj = json.loads(line)
@@ -35,7 +35,8 @@ def geolocalize(configs):
 
                 obj['latitude'] = latitude
                 obj['longitude'] = longitude
-                obj['type'] = 0 if "farmaci" in obj['url'] else 1
+
+                obj['type'] = "Pharmacy" if "farmaci" in obj['url'].lower() else "Textile"
                 str_obj = json.dumps(obj, ensure_ascii=False)
 
                 outf.write(str_obj + "\n")

@@ -23,6 +23,8 @@ def about_us(request):
 
 
 def maps(request):
+    pk = 1
+    print(Order.objects.get(id=pk).buyer_id.name)
     return render(request, 'maps.html')
 
 

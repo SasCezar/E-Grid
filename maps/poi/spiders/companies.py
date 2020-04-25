@@ -4,8 +4,8 @@ import scrapy
 class POISpider(scrapy.Spider):
     name = "POI"
     site_url = "https://www.informazione-aziende.it"
-    base_ulrs = {"https://www.informazione-aziende.it/13_INDUSTRIE-TESSILI/Regione_LOMBARDIA?qPg=": 20,
-                 "https://www.informazione-aziende.it/47-73-1_FARMACIE/Regione_LOMBARDIA?qPg=": 16}
+    base_ulrs = {'https://www.informazione-aziende.it/27_FABBRICAZIONE-DI-APPARECCHIATURE-ELETTRICHE-ED-APPARECCHIATURE-PER-USO-DOMESTICO-NON-ELETTRICHE?qPg=': 10}#{"https://www.informazione-aziende.it/13_INDUSTRIE-TESSILI/Regione_LOMBARDIA?qPg=": 20,
+                 #"https://www.informazione-aziende.it/47-73-1_FARMACIE/Regione_LOMBARDIA?qPg=": 16}
 
     def start_requests(self):
         urls = [url + str(i + 1) for url in self.base_ulrs for i in range(self.base_ulrs[url])]
@@ -30,6 +30,6 @@ class POISpider(scrapy.Spider):
             state = response.xpath('//td[@data-title="Regione"]/text()').get().strip()
             country = response.xpath('//span[@class="country-name"]/text()').get().strip()
             page = {"url": url, "html": response.text, "name": name, "address": address,
-                    "city": city, "cap": cap, "region": region, "state": state, "country": country}
+                    "city": city, "cap": cap, "region": region, "state": state, "country": country, "type": "Electric and Electronics"}
 
             yield page
