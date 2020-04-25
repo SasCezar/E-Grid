@@ -14,7 +14,7 @@
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text">{{ product.description }}</p>
                     <p>{{ product.id }}</p>
-                    <a href="{% url 'order' product.id %}" class="btn btn-primary"> Open request </a>
+                    <a href="{% url 'product' product.id %}" class="btn btn-primary"> Open request </a>
                 </div>
             </div>
         {% endfor %}
