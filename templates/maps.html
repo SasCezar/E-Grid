@@ -3,6 +3,7 @@
 
 
 {% block page_content %}
+
     <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
     <!-- Ensures the web page looks good on all screen sizes. -->
@@ -13,11 +14,14 @@
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
     <style>
+
         #myMap {
-            width: 100%;
-            height: 100%;
+            width: 99.2%;
+            height: 40vw;
         }</style>
-    <div id="myMap"></div>
+    <div class="row">
+        <div id="myMap"></div>
+    </div>
     <script type="text/javascript">
 
         function showLocation(position) {
