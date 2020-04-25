@@ -10,8 +10,8 @@ class Address(models.Model):
     state = models.CharField(max_length=30)
     zipcode = models.CharField(max_length=10)
     country = models.CharField(max_length=50)
-    lat = models.DecimalField(max_digits=9, decimal_places=5)
-    long = models.DecimalField(max_digits=9, decimal_places=5)
+    lat = models.DecimalField(max_digits=9, decimal_places=5, null=True)
+    long = models.DecimalField(max_digits=9, decimal_places=5, null=True)
 
     class Meta:
         verbose_name = 'Address'
