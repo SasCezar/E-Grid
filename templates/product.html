@@ -51,7 +51,7 @@
         <div class="col-md-4">
             <div class="card mb-2">
 
-               
+               {{ ordersinfo }} order open
 
             </div>
         </div>
@@ -60,7 +60,9 @@
         {% for order in orders %}
             <div class="col-md-4">
                 <div class="card mb-1">
+
                     <p>{{ order.quantity }}<br>{{ order.unit_price }}<br>{{ order.buyer_id.name}}<br>{{ order.buyer_id.address.country}}</p>
+                    <a class="btn btn-outline-primary" href="../../order/{{order.id}}">See order</a>
                 </div>
             </div>
         {% endfor %}

@@ -46,5 +46,7 @@ def addUser():
 def product(request, pk):
     product = Product.objects.get(id=pk)
     orders = Order.objects.filter(product_id_id=pk)
-    context = {"orders": orders, "product": product}
+    
+    ordersinfo = len(orders)
+    context = {"orders": orders, "product": product,"ordersinfo":ordersinfo}
     return render(request, 'product.html', context)
