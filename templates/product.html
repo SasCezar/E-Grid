@@ -1,96 +1,75 @@
 {% extends "body.html" %}
 {% load static %}
 {% block page_content %}
-<style>
-    .collapsible_order {
-      background-color: #777;
-      color: white;
-      cursor: pointer;
-      padding: 18px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 15px;
-    }
-    
-    .collapsible_order:hover {
-      background-color: #555;
-    }
-    
-    .content_order {
-      padding: 0 18px;
-      display: none;
-      overflow: hidden;
-      background-color: #f1f1f1;
-    }
-</style>
-<script>
-   function openDiv(el){
-        objDOM = document.getElementById("content_order_"+el);
-        
-        if (objDOM.style.display === "block") {
-            objDOM.style.display = "none";
-        } else {
-            objDOM.style.display = "block";
-        }
-   }
-</script>
 
 
-    <h1>Product : {{ product.name }}</h1>
-    <div class="row">
-   
-        <div class="col-md-4">
-            <div class="card mb-2">
 
-                <img class="card-img-top" src="{{ product.image_url }}">
 
-            </div>
+    <h2 class="text-center"> {{ product.name }}</h2>
+    <div class="row container">
+
+        <div class="col-md-8">
+            <img class="card-img-top" src="{{ product.image_url }}">
         </div>
         <div class="col-md-4">
-            <div class="card mb-2">
-
-               {{ ordersinfo }} order open
-
-            </div>
+            <h3 class="text-center">Description</h3>
+            <p class="card-text">{{ product.description }}</p>
         </div>
     </div>
-    <div class="row">
+
+    <div class="orders">
+        <h3 class="text-center">Orders</h3>
         {% for order in orders %}
             <div class="col-md-4">
-                <div class="card mb-1">
 
-                    <p>{{ order.quantity }}<br>{{ order.unit_price }}<br>{{ order.buyer_id.name}}<br>{{ order.buyer_id.address.country}}</p>
-                    <a class="btn btn-outline-primary" href="../../order/{{order.id}}">See order</a>
+                <div class="card mb-2">
+                    <div class="card-body rounded border shadow">
+                        <h5 class="card-title"><span class="badge badge-primary">priority high</span></h5>
+                        <p>{{ order.quantity }}
+                        <p>{{ order.unit_price }}</p>
+                        <p>{{ order.buyer_id.name }}</p>
+                        <p>{{ order.buyer_id.address.country }}</p>
+                        <button class="btn btn-outline-primary" href="../../order/{{ order.id }}" type="submit">Act</button>
+                    </div>
                 </div>
             </div>
         {% endfor %}
-        <div class="col-md-4">
-            <div class="card mb-1" style="width: auto;">
-                <p>r<br>r<br>r</p>
-            </div>
-        </div>
+
     </div>
-    <div class="row"></div>
-            <div class="card-body">
-                
-                
-                <button type="button" onclick="openDiv('1')" class="collapsible_order">Product description</button>
-                <div id="content_order_1" style="display:none">
-                    <p >{{ product.description }}</p>
-                </div>
-                <button type="button" onclick="openDiv('2')" class="collapsible_order">Product specification</button>
-                <div id="content_order_2" style="display:none">
-                    <p >{{ product.specification }}</p>  
-                </div>
-                <button type="button" onclick="openDiv('3')" class="collapsible_order">Organization</button>
-                <div id="content_order_3" style="display:none">             
-                    <p >{{ buyer.name }}</p>
-                </div>
-            </div>
+    <div class="card-body">
+
+        <p>
+
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#description"
+                    aria-expanded="false" aria-controls="collapseExample">
+                Description
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#specification"
+                    aria-expanded="false" aria-controls="collapseExample">
+                Specification
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buyername"
+                    aria-expanded="false" aria-controls="collapseExample">
+                Organization
+            </button>
+        </p>
+
+        <div class="collapse" id="description">
+            <div class="card card-body">
+                <p>{{ product.description }}</p></div>
         </div>
+        <div class="collapse" id="specification">
+            <div class="card card-body">
+                <p>{{ product.specification }}</p></div>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <p>{{ product..name }}</p></div>
+        </div>
+
+
     </div>
+
 
 
 

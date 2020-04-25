@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from egrid.models import Product, Order, AdministrativeOrganization
+from egrid.models import Product, Order, Organization
 
 
 # Create your views here.
@@ -13,7 +13,7 @@ def index(request):
 def order(request, pk):
     order = Order.objects.get(pk=pk)
     product = Product.objects.get(id=order.product_id_id)
-    buyer = AdministrativeOrganization.objects.get(id=order.buyer_id_id)
+    buyer = Organization.objects.get(id=order.buyer_id_id)
     context = {"order": order, "product": product, "buyer": buyer}
     return render(request, 'order.html', context)
 
@@ -23,8 +23,6 @@ def about_us(request):
 
 
 def maps(request):
-    pk = 1
-    print(Order.objects.get(id=pk).buyer_id.name)
     return render(request, 'maps.html')
 
 
@@ -50,3 +48,4 @@ def product(request, pk):
     ordersinfo = len(orders)
     context = {"orders": orders, "product": product,"ordersinfo":ordersinfo}
     return render(request, 'product.html', context)
+
