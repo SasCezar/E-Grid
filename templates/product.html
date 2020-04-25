@@ -2,9 +2,6 @@
 {% load static %}
 {% block page_content %}
 
-
-
-
     <h2 class="text-center"> {{ product.name }}</h2>
     <div class="row container">
 
@@ -36,35 +33,5 @@
         {% endfor %}
 
     </div>
-    <div class="card-body">
-
-        <p>
-
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#description"
-                    aria-expanded="false" aria-controls="collapseExample">
-                Description
-            </button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#specification"
-                    aria-expanded="false" aria-controls="collapseExample">
-                Specification
-            </button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buyername"
-                    aria-expanded="false" aria-controls="collapseExample">
-                Organization
-            </button>
-        </p>
-
-        
-        <div class="collapse" id="specification">
-            <div class="card card-body">
-                <p>{{ product.specification }}</p></div>
-        </div>
-
-
-    </div>
-
-
-
-
 
 {% endblock %}
