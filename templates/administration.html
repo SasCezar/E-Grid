@@ -1,11 +1,11 @@
 {% extends "body.html" %}
 {% load static %}
 {% block page_content %}
+    <div class="container">
+        <div class="row container ">
 
-    <h2 class="text-center"> {{ product.name }}</h2>
-    <div class="row container">
-
-            <p class="text-center"><h3>{{ organization.name }}</h3></p>
+            <p class="text-center">
+            <h3>{{ organization.name }}</h3></p>
 
             <div class="col-md-4">
                 <div class="badge badge-primary">
@@ -13,12 +13,12 @@
                 </div>
             </div>
             <div class="row container">
-                <div class="col-md-4">
-                    <h4>Address:<br></h4>
+                <div class="col-md-4 mb-5">
+
                     {{ organization.address.address }}
                 </div>
             </div>
-            <div class="row container">
+            <div class="row container mb-4  ">
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -30,15 +30,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                        {%for order in orders %}
+                    {% for order in orders %}
                         <tr>
-                            <th scope="row">{{order.id}}</th>
-                            <td><a class="badge badge-pill badge-info" href="../../order/{{order.id}}">see details</a></td>
-                            <td> {{order.product_id.name}} </td>
-                            <td> {{order.quantity}}</td>
-                            <td> {{order.unit_price}}</td>
+                            <th scope="row">{{ order.id }}</th>
+                            <td><a class="badge badge-pill badge-info" href="../../order/{{ order.id }}">see details</a>
+                            </td>
+                            <td> {{ order.product_id.name }} </td>
+                            <td> {{ order.quantity }}</td>
+                            <td> {{ order.unit_price }}</td>
                         </tr>
-                        {%endfor%}
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>
