@@ -4,16 +4,16 @@
     <h1>Required products</h1>
     <div class="row">
         {% for product in products %}
-            <div class="col-md-4">
-                <div class="card mb-2">
-
-                    <img class="card-img-top" src="{{ product.image_url }}">
-
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text">{{ product.description }}</p>
-                    <a href="{% url 'product' product.id %}" class="btn btn-primary"> Open product card </a>
+            <div class="col-md-4 mt-4 mb-4">
+                <div class="shadow">
+                    <div class="card mb-2 border-0">
+                        <img class="card-img-top" src="{{ product.image_url }}" alt="Product Image">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text text-justify">{{ product.description }}</p>
+                        <a href="{% url 'product' product.id %}" class="btn btn-primary">Open product card</a>
+                    </div>
                 </div>
             </div>
         {% endfor %}

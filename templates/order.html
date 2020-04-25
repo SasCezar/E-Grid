@@ -12,13 +12,13 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">Quantity: {{ order.quantity }}</h5>
-                <p class="card-text">Price:{{ order.unit_price }} €</p>
-                <p class="card-text">Buyer :<br>{{ order.buyer_id_id }}</p>
-                <p class="card-text">Product :<br>{{ product.name }}</p>
-                <p class="card-text">Product description:<br>{{ product.description }}</p>
-                <p class="card-text">Product specification:<br>{{ product.specification }}</p>
-                <p class="card-text">Ente :{{ buyer.name }}</p>
-                <a href="" class="btn btn-primary"> Open request </a>
+                <p class="card-text">Price: {{ order.unit_price }} €</p>
+                <p class="card-text">Buyer: <br>{{ order.buyer_id_id }}</p>
+                <p class="card-text">Product: <br>{{ product.name }}</p>
+                <p class="card-text text-justify">Product description:<br>{{ product.description }}</p>
+                <p class="card-text text-justify">Product specification:<br>{{ product.specification }}</p>
+                <p class="card-text">Buyer: {{ buyer.name }}</p>
+                <a href="" class="btn btn-primary">Open request</a>
             </div>
         </div>
     </div>
