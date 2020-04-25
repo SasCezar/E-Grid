@@ -1,7 +1,329 @@
-{% extends "base.html" %}
+{% extends "body.html" %}
 {% load static %}
 
 
 {% block page_content %}
-    <p>this is an about us page</p>
+    <style>
+
+        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        #team {
+            background: #ffffff !important;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: #108d6f;
+            border-color: #108d6f;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #000000;
+            border-color: #000000;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section .section-title {
+            text-align: center;
+            color: #000000;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        #team .card {
+            border: 2px;
+            background: #ffffff;
+        }
+
+        .image-flip:hover .backside,
+        .image-flip.hover .backside {
+            -webkit-transform: rotateY(0deg);
+            -moz-transform: rotateY(0deg);
+            -o-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            border-radius: .25rem;
+        }
+
+        .image-flip:hover .frontside,
+        .image-flip.hover .frontside {
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+
+        .mainflip {
+            -webkit-transition: 1s;
+            -webkit-transform-style: preserve-3d;
+            -ms-transition: 1s;
+            -moz-transition: 1s;
+            -moz-transform: perspective(1000px);
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transition: 1s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .frontside {
+            position: relative;
+            -webkit-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            z-index: 2;
+            margin-bottom: 30px;
+        }
+
+        .backside {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #ffffff;
+            -webkit-transform: rotateY(-180deg);
+            -moz-transform: rotateY(-180deg);
+            -o-transform: rotateY(-180deg);
+            -ms-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+            -webkit-box-shadow: 5px 7px 9px -4px rgb(255, 255, 255);
+            -moz-box-shadow: 5px 7px 9px -4px rgb(255, 255, 255);
+            box-shadow: 5px 7px 9px -4px rgb(255, 255, 255);
+        }
+
+        .frontside,
+        .backside {
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transition: 1s;
+            -webkit-transform-style: preserve-3d;
+            -moz-transition: 1s;
+            -moz-transform-style: preserve-3d;
+            -o-transition: 1s;
+            -o-transform-style: preserve-3d;
+            -ms-transition: 1s;
+            -ms-transform-style: preserve-3d;
+            transition: 1s;
+            transform-style: preserve-3d;
+        }
+
+        .frontside .card,
+        .backside .card {
+            min-height: 312px;
+        }
+
+        .backside .card a {
+            font-size: 18px;
+            color: #000000 !important;
+        }
+
+        .frontside .card .card-title,
+        .backside .card .card-title {
+            color: #000000 !important;
+        }
+
+        .frontside .card .card-body img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+    </style>
+    <section id="team" class="pb-5">
+        <div class="container">
+            <h5 class="section-title h1">OUR TEAM</h5>
+            <div class="row">
+                <!-- Team member -->
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" >
+                        <div class="mainflip flip-0">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <p><img class=" img-fluid" src="https://media-exp1.licdn.com/dms/image/C4D03AQHvXVSTD-Sw-A/profile-displayphoto-shrink_200_200/0?e=1593043200&v=beta&t=QsNj8JHyhX1gfmFbD19T1-6CPwFtWG4jtaXCa87Y-gA" alt="card image"></p>
+                                        <h4 class="card-title">Andrea Guzzo</h4>
+                                        <p class="card-text">MSc Student - Data Scientist</p>
+                                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="backside">
+                                <div class="card">
+                                    <div class="card-body text-center mt-4">
+                                        <h4 class="card-title">Andrea Guzzo</h4>
+                                        <p class="card-text">Data Scientist and AI-Computer Science Student. Technology, Videogame, Sci-fi and Music Lover.</p>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/andreaguzzo/">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a class="social-icon text-xs-center" target="_blank" href="https://github.com/JeyDi">
+                                                    <i class="fa fa-github"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./Team member -->
+                <!-- Team member -->
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <p><img class=" img-fluid" src="https://media-exp1.licdn.com/dms/image/C4D03AQEfbqlyzz4CTA/profile-displayphoto-shrink_200_200/0?e=1593043200&v=beta&t=orGYe-PD6zvTnv_pKzZWx5LQ0bm4LzxmxIUg5CzkC1U" alt="card image"></p>
+                                        <h4 class="card-title">Cezar Sas</h4>
+                                        <p class="card-text">Teaching Assistant - ML/NLP Researcher</p>
+                                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="backside">
+                                <div class="card">
+                                    <div class="card-body text-center mt-4">
+                                        <h4 class="card-title">Cezar Sas</h4>
+                                        <p class="card-text">I’m interested in Machine Learning and Natural Language Processing. Investigating methods and models for extracting knowledge from semi-structured and unstructured data is the general goal of my research. </p>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/CezarSas">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/cezarsas/">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a class="social-icon text-xs-center" target="_blank" href="https://github.com/sasCezar/">
+                                                    <i class="fa fa-github"></i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a class="social-icon text-xs-center" target="_blank" href="http://sascezar.github.io/">
+                                                    <i class="fa fa-globe"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./Team member -->
+                <!-- Team member -->
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <p><img class=" img-fluid" src="https://media-exp1.licdn.com/dms/image/C4D03AQHncqyPG1IuPA/profile-displayphoto-shrink_200_200/0?e=1593043200&v=beta&t=L3Dbtugd4FyzvRSsyrrz0bEY8HTH0RzfZIG-URxbwbI" alt="card image"></p>
+                                        <h4 class="card-title">Dagmawi Tegegn</h4>
+                                        <p class="card-text">PhD Student</p>
+                                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="backside">
+                                <div class="card">
+                                    <div class="card-body text-center mt-4">
+                                        <h4 class="card-title">Dagmawi Tegegn</h4>
+                                        <p class="card-text">PhD student at University of Milano-Bicocca. I'm working on deep learning and machine learning methods applied on various type of signals coming from sensors.</p>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/dagmawi-delelegn-tegegn-41938699/">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./Team member -->
+                <!-- Team member -->
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <p><img class=" img-fluid" src="https://media-exp1.licdn.com/dms/image/C4D03AQHC6YKqFRo1zw/profile-displayphoto-shrink_200_200/0?e=1593043200&v=beta&t=nCtWt_IV6TcLf2jfjJV_7hvdbNHn2vdho0ZZ7nqsiKw" alt="card image"></p>
+                                        <h4 class="card-title">Michele Carbonera</h4>
+                                        <p class="card-text">MSc Student</p>
+                                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="backside">
+                                <div class="card">
+                                    <div class="card-body text-center mt-4">
+                                        <h4 class="card-title">Michele Carbonera</h4>
+                                        <p class="card-text">Master in Computer Science at the University of Milan-Bicocca. I am interested in innovation and the way it can be applied in new scenarios to create and transform a business.
+                                        </p>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/michele-carbonera/">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./Team member -->
+                <!-- Team member -->
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <p><img class=" img-fluid" src="https://media-exp1.licdn.com/dms/image/C5603AQEzWVvKhxIt2g/profile-displayphoto-shrink_800_800/0?e=1593043200&v=beta&t=exM4or7FJTkLpxWrS8BkOn7Iw4zp-EPHNySwX8ZfHI4" alt="card image"></p>
+                                        <h4 class="card-title">Simone Riva</h4>
+                                        <p class="card-text">PhD Student</p>
+                                        <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="backside">
+                                <div class="card">
+                                    <div class="card-body text-center mt-4">
+                                        <h4 class="card-title">Simone Riva</h4>
+                                        <p class="card-text">PhD at Cambridge University. Previously master in Computer Science at the University of Milan-Bicocca. Working on bioinformatics and machine learning applied to cancer research.</p>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/simone-giovanni-riva-866165155/">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./Team member -->
+            </div>
+        </div>
+    </section>
 {% endblock %}

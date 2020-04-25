@@ -1,0 +1,31 @@
+{% extends "body.html" %}
+{% load static %}
+{% block page_content %}
+    <h1>Required products</h1>
+    <div class="row">
+   
+        <div class="col-md-4">
+            <div class="card mb-2">
+
+                <img class="card-img-top" src="{{ product.image_url }}">
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Quantity: {{ order.quantity }}</h5>
+                <p class="card-text">Price:{{ order.unit_price }} €</p>
+                <p class="card-text">Buyer :<br>{{ order.buyer_id_id }}</p>
+                <p class="card-text">Product :<br>{{ product.name }}</p>
+                <p class="card-text">Product description:<br>{{ product.description }}</p>
+                <p class="card-text">Product specification:<br>{{ product.specification }}</p>
+                <p class="card-text">Ente :{{ buyer.name }}</p>
+                <a href="" class="btn btn-primary"> Open request </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}

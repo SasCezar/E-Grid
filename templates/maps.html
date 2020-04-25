@@ -1,0 +1,62 @@
+{% extends "body_fluid.html" %}
+{% load static %}
+
+
+{% block page_content %}
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+
+    <!-- Ensures the web page looks good on all screen sizes. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+
+    <style>
+        #myMap {
+            width: 100%;
+            height: 100%;
+        }</style>
+    <div id="myMap"></div>
+    <script type="text/javascript">
+
+        function showLocation(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            alert("Latitude : " + latitude + " Longitude: " + longitude);
+            return [latitude, longitude];
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                var x = navigator.geolocation.getCurrentPosition(showLocation);
+                alert(x);
+                return x;
+
+            } else {
+                alert([-122.33, 47.6]);
+                return [-122.33, 47.6];
+            }
+        }
+
+        //Create an instance of the map control and set some options.
+        var map = new atlas.Map('myMap', {
+            center: [45.4642, 9.1900],
+            zoom: 12,
+            language: 'en-US',
+            authOptions: {
+                authType: 'subscriptionKey',
+                subscriptionKey: 'PiEFZPiPl8ibQudVmL6e-wcAI7-Y92UkvvK57uCHcJc'
+            }
+        });
+
+        map.controls.add([
+            new atlas.control.ZoomControl(),
+            new atlas.control.CompassControl(),
+            new atlas.control.PitchControl(),
+            new atlas.control.StyleControl()
+        ], {
+            position: "top-right"
+        });
+    </script>
+{% endblock %}
