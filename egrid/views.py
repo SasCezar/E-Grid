@@ -24,3 +24,7 @@ def about_us(request):
 
 def maps(request):
     return render(request, 'maps.html')
+
+
+def login(request):
+    return render(request, 'login.html')
