@@ -76,6 +76,7 @@ HEALTH_CENTER_TYPES = (('Hospital', 'Hospital'),
 
 class HealthCenter(models.Model):
     name = models.CharField(max_length=100)
+    responsible = models.CharField(max_length=30)
     address = models.ForeignKey(Address, on_delete=models.CASCADE)
     center_type = MultiSelectField(choices=HEALTH_CENTER_TYPES)
 
