@@ -31,11 +31,11 @@
                     <div class="card mb-2">
                         <div class="card-body rounded  shadow">
                             <h5 class="card-title"><span class="badge badge-primary">priority high</span></h5>
-                            <p>{{ order.quantity }}
-                            <p>{{ order.unit_price }}</p>
-                            <p>{{ order.buyer_id.name }}</p>
-                            <p>{{ order.buyer_id.address.country }}</p>
-                            <button class="btn btn-outline-primary" href="../../order/{{ order.id }}" type="submit">Act
+                            <p class="card-title"><b>Quantity:</b> {{ order.quantity }}</p>
+                            <p class="card-title"><b>Price:</b> {{ order.unit_price }}</p>
+                            <p class="card-title"><b>Requested by:</b> {{ order.buyer_id.name }}</p>
+                            <p class="card-title"><b>Buyer:</b> {{ order.buyer_id.address.country }}</p>
+                            <button class="btn btn-outline-primary" href="../../order/{{ order.id }}" type="submit">Open
                             </button>
                         </div>
                     </div>
