@@ -37,6 +37,9 @@ After the crisis, E-Grid will allow industries and companies to find new supplie
 
 ### The necessities in order to continue the project?
 
+To realize our project, we necessitate the collaboration of the EU, and national and local administrations as this project rely on their presence on the platform to have the maximum benefit for all the communities in case of emergencies.
+
+Additionally, our team needs human resources with a business background. On the technological implementation, however, our team, whose components have remarkable technical expertise, can manage the workload in an optimal way, increasing functionality and correcting any problems quickly.
 
 
 ### What you have done during the weekend?
