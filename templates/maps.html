@@ -24,25 +24,6 @@
     </div>
     <script type="text/javascript">
 
-        function showLocation(position) {
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-            alert("Latitude : " + latitude + " Longitude: " + longitude);
-            return [latitude, longitude];
-        }
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                var x = navigator.geolocation.getCurrentPosition(showLocation);
-                alert(x);
-                return x;
-
-            } else {
-                alert([-122.33, 47.6]);
-                return [-122.33, 47.6];
-            }
-        }
-
         //Create an instance of the map control and set some options.
         var map = new atlas.Map('myMap', {
             center: [9.4642, 45.500],
@@ -68,7 +49,18 @@
             map.sources.add(datasource);
 
 //Create a layer that defines how to render points in the data source and add it to the map.
-            map.layers.add(new atlas.layer.BubbleLayer(datasource));
+            // map.layers.add(new atlas.layer.BubbleLayer(datasource));
+
+            map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+                textOptions: {
+                    textField: ['concat', ['get', 'place']],
+
+                    //Some additional style options.
+                    offset: [0, -1.5],
+                    size: 12,
+                    color: 'Black'
+                }
+            }));
 
 //Load the earthquake data.
 //            datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
