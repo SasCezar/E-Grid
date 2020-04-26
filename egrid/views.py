@@ -30,17 +30,6 @@ def login(request):
     return render(request, 'login.html')
 
 
-def adduser():
-    # Create user and save to the database
-    user = User.objects.create_user('myusername', 'myemail@crazymail.com', 'mypassword')
-
-    # Update fields and then save again
-    user.first_name = 'John'
-    user.last_name = 'Citizen'
-    user.save()
-    return HttpResponse("saved")
-
-
 def product(request, pk):
     product = Product.objects.get(id=pk)
     orders = Order.objects.filter(product_id_id=pk)
