@@ -1,6 +1,7 @@
 # E-Grid
 European Grid - A cooperative marketplace
 
+[![Video Description](http://img.youtube.com/vi/os87gubtxww/0.jpg)](http://www.youtube.com/watch?v=os87gubtxww)
 
 ### What Inspired Us?
 
