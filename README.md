@@ -58,5 +58,8 @@ Our weekend can be summarized into:
 We are very proud to be part of the [#EUvsVirus](https://euvsvirus.org/) challenge and to present our solution. We pushed ourselves to tackle a problem in a domain that we are not familiar with, as we all are computer scientists. We also used new technologies and learned many new things as we tried to get the most out of this experience. This challenge made us feel closer even if we are living in different countries, as we spent more time together (online). We would like to thank the EU and the partners for this opportunity.
 
 ### URLs
-https://github.com/SasCezar/E-Grid
-https://devpost.com/software/e-grid
+Repository: https://github.com/SasCezar/E-Grid
+
+DevPost Project: https://devpost.com/software/e-grid
+
+YouTub Video Pitch: http://www.youtube.com/watch?v=os87gubtxww
