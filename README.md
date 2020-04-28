@@ -47,7 +47,7 @@ Additionally, our team needs human resources with a business background. On the 
 
 Our weekend can be summarized into:
 1. Develop the idea
-2. Create a demo web application that contains:
+2. Create a demo web application using Django that contains:
    1. A database
    2. Pages with the required products
    3. List of orders for a company
