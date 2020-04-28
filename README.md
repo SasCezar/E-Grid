@@ -62,4 +62,4 @@ Repository: https://github.com/SasCezar/E-Grid
 
 DevPost Project: https://devpost.com/software/e-grid
 
-YouTub Video Pitch: http://www.youtube.com/watch?v=os87gubtxww
+YouTube Video Pitch: http://www.youtube.com/watch?v=os87gubtxww
