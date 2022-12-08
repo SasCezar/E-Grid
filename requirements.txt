@@ -13,7 +13,7 @@ bitarray==1.2.1
 bkcharts==0.2
 bleach==3.1.4
 boto==2.49.0
-certifi==2020.4.5.1
+certifi==2022.12.7
 cffi==1.14.0
 chardet==3.0.4
 click==7.1.1
